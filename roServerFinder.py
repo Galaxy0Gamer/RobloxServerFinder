@@ -24,7 +24,7 @@ gameInfo = requests.get(f"https://games.roblox.com/v1/games?universeIds={str(gam
 print(gameUniverseID)
 print("Found game!")
 print("--------------------------------------------------------")
-print(f"Now joining: {gameInfo["name"]} by {gameInfo["creator"]["name"]}.\nThere are {gameInfo["playing"]} players currently online.")
+print(f"Now joining")
 print("--------------------------------------------------------")
 print("Attempting to find server information...")
 
@@ -71,8 +71,6 @@ async def getServerInfo(server):
 
         if geolocation["status"] != "success":
             return False
-
-        print(f"Server found at ({geolocation["countryCode"]}) --> {geolocation["region"]}, {geolocation["city"]}")
 
         if geolocation["countryCode"] in regions: 
             driver.get(f"https://www.roblox.com/games/{str(placeId)}/")
